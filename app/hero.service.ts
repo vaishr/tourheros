@@ -8,9 +8,8 @@ export class HeroService {
   getHeroes() {
     return  Promise.resolve(HEROES);
   }
-  getHeroesSimulateAsync() {
-    return new Promise<Hero[]>(resolve =>
-      setTimeout(() => resolve(HEROES), 2000)
-    );
+  getHero(id: number) {
+  return this.getHeroes()
+      .then(heroes => heroes.filter(hero => hero.id === id)[0]);
   }
 }
